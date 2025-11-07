@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= shopName %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand"><%= shopName %></div>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/search">Search</a>
+          <a href="/register">Register</a>
+          <a href="/survey">Survey</a>
+        </nav>
+      </header>
+
+      <h1>About <%= shopName %></h1>
+      <p>We sell all sorts of drinks</p>
+      <h2>Our Shops & Managers</h2>
+      <ul>
+        <% shops.forEach(function(shop){ %>
+          <li>
+            <strong><%= shop.name %></strong><br />
+            Manager: <%= shop.manager %><br />
+            <%= shop.address[0] %><br />
+            <%= shop.address[1] %><br />
+            <%= shop.address[2] %>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

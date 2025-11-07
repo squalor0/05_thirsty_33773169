@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= shopName %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand"><%= shopName %></div>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/search">Search</a>
+          <a href="/register">Register</a>
+          <a href="/survey">Survey</a>
+        </nav>
+      </header>
+
+      <h1>This is the register page</h1>
+      <form method="POST" action="/registered" class="form-grid">
+        <label for="first">First Name:</label>
+        <input id="first" type="text" name="first" required />
+
+        <label for="last">Last Name:</label>
+        <input id="last" type="text" name="last" required />
+
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          title="Please enter a valid email address (e.g. name@example.com)"
+          class="span-3"
+        />
+
+        <input type="submit" value="OK" class="full" />
+      </form>
+    </div>
+  </body>
+</html>

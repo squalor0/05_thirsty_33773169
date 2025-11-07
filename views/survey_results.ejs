@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= shopName %> — Survey Results</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand"><%= shopName %></div>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/search">Search</a>
+          <a href="/register">Register</a>
+          <a href="/survey">Survey</a>
+        </nav>
+      </header>
+
+      <h1>Thank you for your feedback!</h1>
+      <h2>Survey responses</h2>
+
+      <ul>
+        <li><strong>Name:</strong> <%= survey.first %> <%= survey.last %></li>
+        <li><strong>Email:</strong> <%= survey.email %></li>
+        <li><strong>Age:</strong> <%= survey.age %></li>
+        <li><strong>Drinks category:</strong> <%= survey.category %></li>
+        <li><strong>Student:</strong> <%= survey.student %></li>
+      </ul>
+
+      <p><a class="nav" href="/survey">Submit another response</a></p>
+    </div>
+  </body>
+</html>

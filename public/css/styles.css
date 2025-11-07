@@ -1,0 +1,142 @@
+/* ---- CSS reset-ish & base ---- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #111827);
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+/* ---- Layout ---- */
+.container {
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 24px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ---- Header / Nav ---- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #93c5fd;
+}
+.nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-left: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: transform .08s ease, background .15s ease, color .15s ease;
+}
+.nav a:hover {
+  background: #1f2937;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ---- Headings ---- */
+h1 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  color: #f8fafc;
+}
+h2 {
+  margin: 16px 0 8px;
+  font-size: 1.25rem;
+  color: #c7d2fe;
+}
+
+/* ---- Lists ---- */
+ul { padding-left: 20px; }
+li { margin: 6px 0; }
+
+/* ---- Forms (base styles only, no grid here) ---- */
+form {
+  margin-top: 16px;
+}
+label {
+  color: #e5e7eb;
+  opacity: 0.9;
+}
+input[type="text"],
+input[type="email"] {
+  padding: 10px 12px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #e5e7eb;
+  border-radius: 10px;
+  outline: none;
+}
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.2);
+}
+input[type="submit"],
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .08s ease, background .15s ease;
+}
+input[type="submit"]:hover,
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* ---- Helper spacing ---- */
+.stack > * + * { margin-top: 12px; }
+
+/* ---- Form grid (4 columns: label + input | label + input) ---- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr 160px 1fr; /* label/input pairs */
+  gap: 12px 16px;
+  align-items: center;
+}
+
+/* Make inputs fill their cell */
+.form-grid input[type="text"],
+.form-grid input[type="email"] {
+  width: 100%;
+}
+
+/* Span helpers */
+.form-grid .full { grid-column: 1 / -1; }   /* span entire row */
+.form-grid .span-3 { grid-column: span 3; } /* span 3 columns (after a label) */
+
+/* Submit button alignment */
+.form-grid input[type="submit"] {
+  justify-self: start; /* keep it left-aligned */
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr; /* single column */
+  }
+  .form-grid label {
+    justify-self: start;
+  }
+  .form-grid .span-3,
+  .form-grid .full {
+    grid-column: 1 / -1;
+  }
+}
